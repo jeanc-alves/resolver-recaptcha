@@ -33,21 +33,17 @@ async function resolveCaptcha({ googlekey, pageurl }) {
 }
 
 async function runResolverReCaptcha() {
-  // const googlekey = "6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ-";
   const googlekey = "6LeOURwTAAAAALi7wL3ndLPAIgV7m_3klbrjBlNa";
-  // const pageurl = "https://www.google.com/recaptcha/api2/demo";
+
   const pageurl =
     "https://consulta.detran.ro.gov.br/CentralDeConsultasInternet/Software/ViewConsultaVeiculos.aspx";
   const captchaResolved = await resolveCaptcha({ googlekey, pageurl });
   const { text: captcha_token } = captchaResolved;
-  return { captcha_token };
+  return captcha_token;
 }
 
 async function processReCaptcha() {
-  const { captcha_token } = await runResolverReCaptcha();
-  console.log("captcha_token :", captcha_token);
-  // const captcha_token =
-  //   "03AGdBq25vi-t5NXKln1_l-vsSohxmCH994L6rZaMyy_YH68ZDL76EDg3ONI9qnoK_hDAYewspkZJEHoLtNc5_I6HHWB45nFZDhAateVtl4TYSfSQr-AoxD_6Q14Z6v_nCF1h5RbqwyMDsLICWl5jBYzrTQtS3y7dksQn9SL6yePs2W8k0YcXYJScIWAA3JdCaIrsh87TFzCUDegg2FMVToM3alqmIZHy3pCjFAayscupTBY_jbIu4ccTBrmgjK1fLCQiTdjf8vUo0xaI2piBiXfmgEA0zQ-7GM5mWHAvH4O7OaeQuvUqJGz2iu5MfOgKkk3o_JIrIFSkrQEkM1NDElueosA3HEutQXA5R5i_cRWyc6IfazZ05M1Na68PKIXMTf2O_no5PIwSLWn9mOgo1OVs7_qqCflKHdoHLOOVKHNbm9aOnia3r7tLBBFG6TPgU50P0HC5epbfd7RaXvShHVHb6xDiilAvZP9mabpyWz2F3reniNzrPg6phaADjnqAWXFecXPdjyxD26TzJxrZrGTWrMFVFIBuFbOZr11Q_c1hHhe7vTKdqod8";
+  return runResolverReCaptcha();
 }
 
 module.exports = { processReCaptcha };
