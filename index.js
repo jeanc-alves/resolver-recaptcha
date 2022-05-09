@@ -45,5 +45,6 @@ async function runResolverReCaptcha() {
 async function processReCaptcha() {
   return runResolverReCaptcha();
 }
+const c = processReCaptcha();
 
 module.exports = { processReCaptcha };
